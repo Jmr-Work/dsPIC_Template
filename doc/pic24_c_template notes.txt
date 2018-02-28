@@ -1,0 +1,41 @@
+@brief 		notes for generation of template project
+@details 	x
+@auth 		Justin Reina
+@date 		2/23/18
+
+@target		PIC24FJ256GA705
+@board		PIC24FJ256GA7 Curiosity Board 
+
+
+@section 	Configuration
+	MPLAB v4.10
+	XC16 Compiler v1.33
+	PIC24F
+
+	
+@section 	Steps (defaults unless stated)
+	Disconnect all hardware
+	Open MPLAB
+	File->New Project...
+		Microchip Embedded->Standalone Project 'Base'
+		(PIC24FJ256GA705, PICkit3, XC16)
+	Init git src							<C1>
+	Open Code Configurator (ICD->C2/D2)
+	Resource Mgmt->Project->Generate
+	Plug in board & PICkit3, Compile
+	Rst PICkit, rst board, Debug			<C2>
+
+	
+@section 	Debug Validation (defaults unless stated)
+	Disconnect all hardware
+	Open MPLAB
+	File->New Project...
+	PIC24 C Template
+	Compile
+	Change MCU (Customize->Manage->Duplicate active)
+	Plug in board
+	Plug in PICkit3
+	Debug
+
+...
+Samples->Microchip Embedded->PIC24 C Template (Source)
