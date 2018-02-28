@@ -1,18 +1,31 @@
-/*
- * File:   main.c
- * Author: Justin
+/************************************************************************************************************************************/
+/** @file		main.c
+ * 	@brief		x
+ * 	@details	x
  *
- * @section   Opens
- *		ref/stdComments.h
- *		file headers
+ *  @target     dsPIC33EP512GM710
+ *  @board      dsPIC33EP512GM710 Module, Explorer 16/32 Board
+ *
+ *  @author     Justin Reina, Firmware Engineer, Misc. Company
+ *  @created    2/28/18
+ *  @last rev   2/28/18
+ *
+ *
+ * 	@notes		x
+ *
+ * 	@section	Opens
  *		fcn headers
  *		proper commenting
  *		mcu docs (doc/)
  *		sys_init()
  *		pkg & complete
+ *		depr opens ('//?')
  *
- * Created on February 27, 2018, 4:22 PM
+ * 	@section	Legal Disclaimer
+ * 			All contents of this source file and/or any other related source files are the explicit property of
+ * 			Justin Reina. Do not distribute. Do not copy.
  */
+/************************************************************************************************************************************/
 
 //Lib
 #include <stdlib.h>
@@ -23,15 +36,17 @@
 //Project
 #include "bsp/system.h"
 
-volatile int i = 0;
+
+/************************************************************************************************************************************/
+/**	@fcn		int main(void)
+ *  @brief		x
+ *  @details	x
+ */
+/************************************************************************************************************************************/
 int main(void) {
     
     //Init
     SYS_Initialize();
-    
-    for(;;) {
-        i++;
-    }
     
     return EXIT_SUCCESS;
 }

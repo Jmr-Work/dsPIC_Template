@@ -17,7 +17,7 @@ C_DEPS += \
 main.o: D:/Documents/MyWorkspaces/Ref/dsPIC/dsPIC33Template.X/main.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross GCC Compiler'
-	mingw32-gcc -D__dsPIC33EP512GM710__ -D__COMPILE_WITH_ECLIPSE__ -I"D:\Software\Microchip\xc16\v1.33\support\generic\h" -I"D:\Software\Microchip\xc16\v1.33\support\dsPIC33E\h" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	mingw32-gcc -D__dsPIC33EP512GM710__ -D__COMPILE_WITH_ECLIPSE__ -I"D:\Software\Microchip\xc16\v1.33\support\generic\h" -I"D:\Documents\MyWorkspaces\Ref\dsPIC\dsPIC33Template.X\project\cdt\bsp" -I"D:\Software\Microchip\xc16\v1.33\support\dsPIC33E\h" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -21,7 +21,7 @@
  * 			Misc. Company. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
-#ifdef _COMPILE_WITH_ECLIPSE_
+#ifdef __COMPILE_WITH_ECLIPSE__
 
 #include <stdint.h>
 

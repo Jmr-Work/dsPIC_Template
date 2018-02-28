@@ -80,11 +80,10 @@ Program Memory  [Origin = 0x200, Length = 0x555ec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x1aa           0x27f  (639)
-.text                        0x3aa                 0xe            0x15  (21)
-.dinit                       0x3b8                 0xe            0x15  (21)
-.text                        0x3c6                 0xc            0x12  (18)
+.text                        0x3aa                0x18            0x24  (36)
+.dinit                       0x3c2                 0x8             0xc  (12)
 
-                 Total program memory used (bytes):          0x2bb  (699) <1%
+                 Total program memory used (bytes):          0x2af  (687) <1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -103,9 +102,9 @@ Data Memory  [Origin = 0x1000, Length = 0xc000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                       0x1000                   0             0x4  (4)
+.nbss                       0x1000                   0             0x2  (2)
 
-                 Total data memory used (bytes):            0x4  (4) <1%
+                 Total data memory used (bytes):            0x2  (2) <1%
 
 
 Dynamic Memory Usage
@@ -113,18 +112,10 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x1004                              0x6ffc  (28668)
+stack                       0x1002                              0x6ffe  (28670)
 
-                 Maximum dynamic memory (bytes):         0x6ffc  (28668)
+                 Maximum dynamic memory (bytes):         0x6ffe  (28670)
 
-
-External Symbols in Data Memory (by address):
-
-                    0x1002                  _i
-
-External Symbols in Data Memory (by name):
-
-                    0x1002                  _i
 
 External Symbols in Program Memory (by address):
 
@@ -141,7 +132,7 @@ External Symbols in Program Memory (by address):
                   0x0003a4                  __DefaultInterrupt
                   0x0003aa                  _SYS_Initialize
                   0x0003b2                  _SOSC_Configuration
-                  0x0003c6                  _main
+                  0x0003b8                  _main
                   0x0557fa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -160,7 +151,7 @@ External Symbols in Program Memory (by name):
                   0x000248                  __data_init_extended
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003c6                  _main
+                  0x0003b8                  _main
 
 Memory Configuration
 
@@ -280,21 +271,21 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x3b5
+.debug_info       0x000000        0x393
  *(.debug_info)
- .debug_info      0x000000        0x239 build/default/production/_ext/1445258399/system.o
- .debug_info      0x000239        0x17c build/default/production/_ext/43898991/main.o
+ .debug_info      0x000000        0x237 build/default/production/_ext/1445258399/system.o
+ .debug_info      0x000237        0x15c build/default/production/_ext/43898991/main.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000         0xce
+.debug_abbrev     0x000000         0xa5
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x6f build/default/production/_ext/1445258399/system.o
- .debug_abbrev    0x00006f         0x5f build/default/production/_ext/43898991/main.o
+ .debug_abbrev    0x00006f         0x36 build/default/production/_ext/43898991/main.o
 
-.debug_line       0x000000         0xb3
+.debug_line       0x000000         0xb5
  *(.debug_line)
- .debug_line      0x000000         0x77 build/default/production/_ext/1445258399/system.o
- .debug_line      0x000077         0x3c build/default/production/_ext/43898991/main.o
+ .debug_line      0x000000         0x79 build/default/production/_ext/1445258399/system.o
+ .debug_line      0x000079         0x3c build/default/production/_ext/43898991/main.o
 
 .debug_frame      0x000000        0x15a
  *(.debug_frame)
@@ -308,12 +299,12 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xc5
+                  0x000000         0xbf
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0xa4 build/default/production/_ext/1445258399/system.o
  .debug_pubnames
-                  0x0000a4         0x21 build/default/production/_ext/43898991/main.o
+                  0x0000a4         0x1b build/default/production/_ext/43898991/main.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -2583,10 +2574,8 @@ __c30_signature
  __c30_signature
                   0x000066          0x6 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extended.o)
 
-.nbss               0x1000          0x4
+.nbss               0x1000          0x2
  .nbss              0x1000          0x2 build/default/production/_ext/1445258399/system.o
- .nbss              0x1002          0x2 build/default/production/_ext/43898991/main.o
-                    0x1002                  _i
 
 .config_IESO      0x0557f8          0x2
  .config_IESO     0x0557f8          0x2 build/default/production/_ext/1445258399/system.o
@@ -2636,14 +2625,12 @@ __c30_signature
  .ivt._MathError
                   0x00000c          0x2 build/default/production/_ext/1445258399/system.o
 
-.text             0x0003aa          0xe
+.text             0x0003aa         0x18
  .text            0x0003aa          0xe build/default/production/_ext/1445258399/system.o
                   0x0003aa                  _SYS_Initialize
                   0x0003b2                  _SOSC_Configuration
+ .text            0x0003b8          0xa build/default/production/_ext/43898991/main.o
+                  0x0003b8                  _main
 
-.dinit            0x0003b8          0xe
- .dinit           0x0003b8          0xe data_init
-
-.text             0x0003c6          0xc
- .text            0x0003c6          0xc build/default/production/_ext/43898991/main.o
-                  0x0003c6                  _main
+.dinit            0x0003c2          0x8
+ .dinit           0x0003c2          0x8 data_init

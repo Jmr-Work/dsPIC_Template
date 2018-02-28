@@ -12,10 +12,7 @@
  *******************************************************************************/
 
 #ifdef __COMPILE_WITH_ECLIPSE__
-	#pragma GCC diagnostic push
-	#pragma GCC diagnostic ignored "-Wattributes"
-	#pragma GCC diagnostic ignored "-Wunknown-pragmas"
-	#define __prog__
+	#include "cdt.h"
 #endif
 
 //Lib
