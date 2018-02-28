@@ -79,12 +79,12 @@ Program Memory  [Origin = 0x200, Length = 0x555ec]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x1b6           0x291  (657)
-.text                        0x3b6                0x2c            0x42  (66)
-.dinit                       0x3e2                 0xe            0x15  (21)
-.text                        0x3f0                 0xc            0x12  (18)
+.text                        0x200               0x1aa           0x27f  (639)
+.text                        0x3aa                 0xe            0x15  (21)
+.dinit                       0x3b8                 0xe            0x15  (21)
+.text                        0x3c6                 0xc            0x12  (18)
 
-                 Total program memory used (bytes):          0x2fa  (762) <1%
+                 Total program memory used (bytes):          0x2bb  (699) <1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -133,34 +133,34 @@ External Symbols in Program Memory (by address):
                   0x000248                  __data_init_extended
                   0x000248                  __data_init
                   0x0002fa                  __AD1Interrupt
-                  0x000332                  __T1Interrupt
-                  0x000350                  __OscillatorFail
-                  0x000368                  __AddressError
-                  0x000380                  __StackError
-                  0x000398                  __MathError
-                  0x0003b0                  __DefaultInterrupt
-                  0x0003b6                  _SYS_Initialize
-                  0x0003be                  _SOSC_Configuration
-                  0x0003f0                  _main
+                  0x000330                  __T1Interrupt
+                  0x00034c                  __OscillatorFail
+                  0x000362                  __AddressError
+                  0x000378                  __StackError
+                  0x00038e                  __MathError
+                  0x0003a4                  __DefaultInterrupt
+                  0x0003aa                  _SYS_Initialize
+                  0x0003b2                  _SOSC_Configuration
+                  0x0003c6                  _main
                   0x0557fa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x0003be                  _SOSC_Configuration
-                  0x0003b6                  _SYS_Initialize
+                  0x0003b2                  _SOSC_Configuration
+                  0x0003aa                  _SYS_Initialize
                   0x0002fa                  __AD1Interrupt
-                  0x000368                  __AddressError
-                  0x0003b0                  __DefaultInterrupt
+                  0x000362                  __AddressError
+                  0x0003a4                  __DefaultInterrupt
                   0x0557fa                  __FGS.sec
-                  0x000398                  __MathError
-                  0x000350                  __OscillatorFail
-                  0x000380                  __StackError
-                  0x000332                  __T1Interrupt
+                  0x00038e                  __MathError
+                  0x00034c                  __OscillatorFail
+                  0x000378                  __StackError
+                  0x000330                  __T1Interrupt
                   0x000248                  __data_init
                   0x000248                  __data_init_extended
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0003f0                  _main
+                  0x0003c6                  _main
 
 Memory Configuration
 
@@ -212,7 +212,7 @@ LOAD d:/software/microchip/xc16/v1.33/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x1b6
+.text             0x000200        0x1aa
  *(.init)
  .init            0x000200         0x48 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
                   0x000200                  __resetPRI
@@ -224,23 +224,23 @@ LOAD d:/software/microchip/xc16/v1.33/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002fa         0xb6 build/default/production/_ext/1445258399/system.o
+ .isr.text        0x0002fa         0xaa build/default/production/_ext/1445258399/system.o
                   0x0002fa                  __AD1Interrupt
-                  0x000332                  __T1Interrupt
-                  0x000350                  __OscillatorFail
-                  0x000368                  __AddressError
-                  0x000380                  __StackError
-                  0x000398                  __MathError
- .isr             0x0003b0          0x4 default_isr
-                  0x0003b0                  __DefaultInterrupt
+                  0x000330                  __T1Interrupt
+                  0x00034c                  __OscillatorFail
+                  0x000362                  __AddressError
+                  0x000378                  __StackError
+                  0x00038e                  __MathError
+ .isr             0x0003a4          0x4 default_isr
+                  0x0003a4                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x0003b4          0x2 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normalep.Leo)
-                  0x0003b4                  __crt_start_mode
-                  0x0003b4                  __crt_start_mode_normal
+                  0x0003a8          0x2 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normalep.Leo)
+                  0x0003a8                  __crt_start_mode
+                  0x0003a8                  __crt_start_mode_normal
 
 usercode
  *(usercode)
@@ -280,30 +280,26 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x738
+.debug_info       0x000000        0x3b5
  *(.debug_info)
- .debug_info      0x000000        0x5bc build/default/production/_ext/1445258399/system.o
- .debug_info      0x0005bc        0x17c build/default/production/_ext/43898991/main.o
+ .debug_info      0x000000        0x239 build/default/production/_ext/1445258399/system.o
+ .debug_info      0x000239        0x17c build/default/production/_ext/43898991/main.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x13e
+.debug_abbrev     0x000000         0xce
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xdf build/default/production/_ext/1445258399/system.o
- .debug_abbrev    0x0000df         0x5f build/default/production/_ext/43898991/main.o
+ .debug_abbrev    0x000000         0x6f build/default/production/_ext/1445258399/system.o
+ .debug_abbrev    0x00006f         0x5f build/default/production/_ext/43898991/main.o
 
-.debug_line       0x000000        0x15b
+.debug_line       0x000000         0xb3
  *(.debug_line)
- .debug_line      0x000000        0x11f build/default/production/_ext/1445258399/system.o
- .debug_line      0x00011f         0x3c build/default/production/_ext/43898991/main.o
+ .debug_line      0x000000         0x77 build/default/production/_ext/1445258399/system.o
+ .debug_line      0x000077         0x3c build/default/production/_ext/43898991/main.o
 
 .debug_frame      0x000000        0x15a
  *(.debug_frame)
  .debug_frame     0x000000        0x12a build/default/production/_ext/1445258399/system.o
  .debug_frame     0x00012a         0x30 build/default/production/_ext/43898991/main.o
-
-.debug_str        0x000000         0x15
- *(.debug_str)
- .debug_str       0x000000         0x15 build/default/production/_ext/1445258399/system.o
 
 .debug_loc
  *(.debug_loc)
@@ -2570,22 +2566,22 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000030         0x71
+                  0x000030         0x24
  .debug_pubtypes
-                  0x000030         0x5f build/default/production/_ext/1445258399/system.o
+                  0x000030         0x12 build/default/production/_ext/1445258399/system.o
  .debug_pubtypes
-                  0x00008f         0x12 build/default/production/_ext/43898991/main.o
+                  0x000042         0x12 build/default/production/_ext/43898991/main.o
 
 __c30_signature
-                  0x0000a1         0x18
+                  0x000054         0x18
  __c30_signature
-                  0x0000a1          0x6 build/default/production/_ext/1445258399/system.o
+                  0x000054          0x6 build/default/production/_ext/1445258399/system.o
  __c30_signature
-                  0x0000a7          0x6 build/default/production/_ext/43898991/main.o
+                  0x00005a          0x6 build/default/production/_ext/43898991/main.o
  __c30_signature
-                  0x0000ad          0x6 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
+                  0x000060          0x6 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x0000b3          0x6 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extended.o)
+                  0x000066          0x6 d:/software/microchip/xc16/v1.33/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extended.o)
 
 .nbss               0x1000          0x4
  .nbss              0x1000          0x2 build/default/production/_ext/1445258399/system.o
@@ -2640,14 +2636,14 @@ __c30_signature
  .ivt._MathError
                   0x00000c          0x2 build/default/production/_ext/1445258399/system.o
 
-.text             0x0003b6         0x2c
- .text            0x0003b6         0x2c build/default/production/_ext/1445258399/system.o
-                  0x0003b6                  _SYS_Initialize
-                  0x0003be                  _SOSC_Configuration
+.text             0x0003aa          0xe
+ .text            0x0003aa          0xe build/default/production/_ext/1445258399/system.o
+                  0x0003aa                  _SYS_Initialize
+                  0x0003b2                  _SOSC_Configuration
 
-.dinit            0x0003e2          0xe
- .dinit           0x0003e2          0xe data_init
+.dinit            0x0003b8          0xe
+ .dinit           0x0003b8          0xe data_init
 
-.text             0x0003f0          0xc
- .text            0x0003f0          0xc build/default/production/_ext/43898991/main.o
-                  0x0003f0                  _main
+.text             0x0003c6          0xc
+ .text            0x0003c6          0xc build/default/production/_ext/43898991/main.o
+                  0x0003c6                  _main

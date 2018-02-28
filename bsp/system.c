@@ -1,99 +1,75 @@
-/*******************************************************************************
- System Initialization File
-
-  File Name:
-    sys_init.c
-
-  Summary:
-    System Initialization.
-
-  Description:
-    This file contains source code necessary to initialize the system.
- *******************************************************************************/
-
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-Copyright (c) 2013 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
-OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
-CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
-SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
- *******************************************************************************/
-// DOM-IGNORE-END
-
-// ****************************************************************************
-// ****************************************************************************
-// Section: Configuration Bits
-// ****************************************************************************
-// ****************************************************************************
+/************************************************************************************************************************************/
+/** @file		sys_init.c
+ * 	@brief		System Initialization
+ * 	@details	This file contains source code necessary to initialize the system
+ *
+ *  @target     dsPIC33EP512GM710
+ *  @board      Explorer 16/32 Development Board
+ *
+ *  @author     Justin Reina, Firmware Engineer
+ *  @created    2/27/18
+ *  @last rev   2/27/18
+ *
+ *
+ * 	@notes		x
+ *
+ * 	@section	Opens
+ * 			none current
+ *
+ * 	@section	Legal Disclaimer
+ * 			All contents of this source file and/or any other Misc. Product related source files are the explicit property of
+ * 			Misc. Company. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 #include "system.h"
 
 
+//**********************************************************************************************************************************//
+//													CONFIGURATION BITS																//
+//**********************************************************************************************************************************//
 // FICD
-#pragma config ICS = PGD1               // ICD Communication Channel Select bits (Communicate on PGEC1 and PGED1)
-#pragma config JTAGEN = OFF             // JTAG Enable bit (JTAG is disabled)
+#pragma config ICS = PGD1               /* ICD Communication Channel Select bits (Communicate on PGEC1 and PGED1)					*/
+#pragma config JTAGEN = OFF             /* JTAG Enable bit (JTAG is disabled) 														*/
 
 // FPOR
-#pragma config BOREN = ON               // Brown-out Reset (BOR) Detection Enable bit (BOR is enabled)
-#pragma config ALTI2C1 = OFF            // Alternate I2C1 pins (I2C1 mapped to SDA1/SCL1 pins)
-#pragma config ALTI2C2 = OFF            // Alternate I2C2 pins (I2C2 mapped to SDA2/SCL2 pins)
-#pragma config WDTWIN = WIN25           // Watchdog Window Select bits (WDT Window is 25% of WDT period)
+#pragma config BOREN = ON               /* Brown-out Reset (BOR) Detection Enable bit (BOR is enabled) 								*/
+#pragma config ALTI2C1 = OFF            /* Alternate I2C1 pins (I2C1 mapped to SDA1/SCL1 pins) 										*/
+#pragma config ALTI2C2 = OFF            /* Alternate I2C2 pins (I2C2 mapped to SDA2/SCL2 pins) 										*/
+#pragma config WDTWIN = WIN25           /* Watchdog Window Select bits (WDT Window is 25% of WDT period) 							*/
 
 // FWDT
-#pragma config WDTPOST = PS32768        // Watchdog Timer Postscaler bits (1:32,768)
-#pragma config WDTPRE = PR128           // Watchdog Timer Prescaler bit (1:128)
-#pragma config PLLKEN = ON              // PLL Lock Enable bit (Clock switch to PLL source will wait until the PLL lock signal is valid.)
-#pragma config WINDIS = OFF             // Watchdog Timer Window Enable bit (Watchdog Timer in Non-Window mode)
-#pragma config FWDTEN = OFF             // Watchdog Timer Enable bit (Watchdog timer enabled/disabled by user software)
+#pragma config WDTPOST = PS32768        /* Watchdog Timer Postscaler bits (1:32,768) 												*/
+#pragma config WDTPRE = PR128           /* Watchdog Timer Prescaler bit (1:128) 													*/
+#pragma config PLLKEN = ON              /* PLL Lock Enable bit (Clock switch to PLL src will wait until the PLL lock sig is valid.) */
+#pragma config WINDIS = OFF             /* Watchdog Timer Window Enable bit (Watchdog Timer in Non-Window mode) 					*/
+#pragma config FWDTEN = OFF             /* Watchdog Timer Enable bit (Watchdog timer enabled/disabled by user software) 			*/
 
 // FOSC
-#pragma config POSCMD = XT              // Primary Oscillator Mode Select bits (XT Crystal Oscillator Mode)
-#pragma config OSCIOFNC = ON            // OSC2 Pin Function bit (OSC2 is general purpose digital I/O pin)
-#pragma config IOL1WAY = ON             // Peripheral pin select configuration (Allow only one reconfiguration)
-#pragma config FCKSM = CSDCMD           // Clock Switching Mode bits (Both Clock switching and Fail-safe Clock Monitor are disabled)
+#pragma config POSCMD = XT              /* Primary Oscillator Mode Select bits (XT Crystal Oscillator Mode) 						*/
+#pragma config OSCIOFNC = ON            /* OSC2 Pin Function bit (OSC2 is general purpose digital I/O pin) 							*/
+#pragma config IOL1WAY = ON             /* Peripheral pin select configuration (Allow only one reconfiguration) 					*/
+#pragma config FCKSM = CSDCMD           /* Clock Switching Mode bits (Both Clock switching and Fail-safe Clock Monitor are disabled)*/
 
 // FOSCSEL
-#pragma config FNOSC = FRC              // Oscillator Source Selection (Internal Fast RC (FRC))
-#pragma config PWMLOCK = ON             // PWM Lock Enable bit (Certain PWM registers may only be written after key sequence)
-#pragma config IESO = OFF               // Two-speed Oscillator Start-up Enable bit (Start up with user-selected oscillator source)
+#pragma config FNOSC = FRC              /* Oscillator Source Selection (Internal Fast RC (FRC)) 									*/
+#pragma config PWMLOCK = ON             /* PWM Lock Enable bit (Certain PWM registers may only be written after key sequence) 		*/
+#pragma config IESO = OFF               /* Two-speed Oscillator Start-up Enable bit (Start up with user-selected oscillator source) */
 
 // FGS
-#pragma config GWRP = OFF               // General Segment Write-Protect bit (General Segment may be written)
-#pragma config GCP = OFF                // General Segment Code-Protect bit (General Segment Code protect is Disabled)
+#pragma config GWRP = OFF               /* General Segment Write-Protect bit (General Segment may be written) 						*/
+#pragma config GCP = OFF                /* General Segment Code-Protect bit (General Segment Code protect is Disabled) 				*/
 
-// ****************************************************************************
-// ****************************************************************************
-// Section: File Scope Functions
-// ****************************************************************************
-// ****************************************************************************
 
+//Locals
 void SOSC_Configuration ( void ) ;
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _OscillatorFail ( void ) ;
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _AddressError ( void ) ;
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _StackError ( void ) ;
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _MathError ( void ) ;
 
-// ****************************************************************************
-// ****************************************************************************
-// Section: System Initialization
-// ****************************************************************************
-// ****************************************************************************
-/*******************************************************************************
+
+/*************************************************************************************************************************************
+ 													System Initialization
   Function:
     void SYS_Initialize ( void )
 
@@ -132,10 +108,10 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _MathError ( void ) ;
     The order in which services and modules are initialized and started may be
     important.
 
- */
+*************************************************************************************************************************************/
 
-void SYS_Initialize ( void )
-{
+
+void SYS_Initialize(void) {
  	/* Enable LEDs*/
 //X    LED_Enable ( LED_D9 ) ;
 //X    LED_Enable ( LED_D10 ) ;
@@ -157,9 +133,12 @@ void SYS_Initialize ( void )
 
     /* Configure Secondary Oscillator for Timer 1 to work as RTC counter*/
     SOSC_Configuration();
+
+    return;
 }
 
-void SOSC_Configuration( void ) {
+
+void SOSC_Configuration(void) {
     
 //? char a , b , c , *p ;
 
