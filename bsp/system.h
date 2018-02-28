@@ -11,6 +11,13 @@
     This file contains source code necessary to initialize the system.
  *******************************************************************************/
 
+#ifdef __COMPILE_WITH_ECLIPSE__
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wattributes"
+	#pragma GCC diagnostic ignored "-Wunknown-pragmas"
+	#define __prog__
+#endif
+
 //Lib
 #include <xc.h>
 

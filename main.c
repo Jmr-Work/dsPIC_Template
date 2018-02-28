@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 //Tool
-#include "xc.h"
+#include <xc.h>
 
 //Project
 #include "bsp/system.h"

@@ -41,8 +41,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Configuration Bits
 // ****************************************************************************
 // ****************************************************************************
-#include <xc.h>
-//?#include "app.h"
+#include "system.h"
 
 
 // FICD
@@ -162,17 +161,17 @@ void SYS_Initialize ( void )
 
 void SOSC_Configuration( void ) {
     
-    char a , b , c , *p ;
+//? char a , b , c , *p ;
 
-    a = 2 ;
-    b = 0x46 ;
-    c = 0x57 ;
-    p = (char *) &OSCCON ;
+//? a = 2 ;
+//? b = 0x46 ;
+//? c = 0x57 ;
+//? p = (char *) &OSCCON ;
 
-    asm volatile ("mov.b %1,[%0] \n"
-                "mov.b %2,[%0] \n"
-                "mov.b %3,[%0] \n" : /* no outputs */ : "r"( p ) , "r"( b ) , "r"( c ) ,
-                "r"( a ) ) ;
+//? asm volatile ("mov.b %1,[%0] \n"
+//?            "mov.b %2,[%0] \n"
+//?            "mov.b %3,[%0] \n" : /* no outputs */ : "r"( p ) , "r"( b ) , "r"( c ) ,
+//?            "r"( a ) ) ;
 }
 
 // *****************************************************************************
@@ -218,7 +217,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _AD1Interrupt ( void )
     }
 
     /* reset ADC interrupt flag */
-    IFS0bits.AD1IF = 0 ;
+//? IFS0bits.AD1IF = 0 ;
 }
 /*******************************************************************************
   Function:
@@ -248,7 +247,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _AD1Interrupt ( void )
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _T1Interrupt ( void )
 {
     /* reset Timer 1 interrupt flag */
-    IFS0bits.T1IF = 0 ;
+//? IFS0bits.T1IF = 0 ;
 }
 
 // *****************************************************************************
@@ -276,7 +275,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _T1Interrupt ( void )
 
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _OscillatorFail ( void )
 {
-    INTCON1bits.OSCFAIL = 0 ;        //Clear the trap flag
+//? INTCON1bits.OSCFAIL = 0 ;        //Clear the trap flag
     while (1) ;
 }
 
@@ -299,7 +298,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _OscillatorFail ( void )
 
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _AddressError ( void )
 {
-    INTCON1bits.ADDRERR = 0 ;        //Clear the trap flag
+//? INTCON1bits.ADDRERR = 0 ;        //Clear the trap flag
     while (1) ;
 }
 
@@ -322,7 +321,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _AddressError ( void )
 
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _StackError ( void )
 {
-    INTCON1bits.STKERR = 0 ;         //Clear the trap flag
+//? INTCON1bits.STKERR = 0 ;         //Clear the trap flag
     while (1) ;
 }
 
@@ -345,7 +344,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv ) ) _StackError ( void )
 
 void __attribute__ ( ( __interrupt__ , auto_psv ) ) _MathError ( void )
 {
-    INTCON1bits.MATHERR = 0 ;        //Clear the trap flag
+//? INTCON1bits.MATHERR = 0 ;        //Clear the trap flag
     while (1) ;
 }
 
